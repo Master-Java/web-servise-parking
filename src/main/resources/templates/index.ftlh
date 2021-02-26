@@ -9,5 +9,6 @@
 <a href="/login"><button>Войти</button></a>
 <a href="/home"><button>Домой</button></a>
 <a href="/sosed"><button>Сосед</button></a>
+<a href="/registration"><button>Регистрация</button></a>
 </body>
 </html>
