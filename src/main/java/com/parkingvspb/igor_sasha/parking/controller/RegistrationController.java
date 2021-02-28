@@ -2,6 +2,7 @@ package com.parkingvspb.igor_sasha.parking.controller;
 
 import com.parkingvspb.igor_sasha.parking.entity.Users;
 import com.parkingvspb.igor_sasha.parking.service.UsersService;
+import com.parkingvspb.igor_sasha.parking.service.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.sql.SQLException;
 import java.util.Map;
 
 @Controller
 public class RegistrationController {
 
     @Autowired
-    private UsersService usersService;
+    private UsersServiceImpl usersService;
 
     @GetMapping("/registration")
     public String registration() {
@@ -24,7 +26,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(@Valid Users user, BindingResult bindingResult, Model model) {
+    public String addUser(@Valid Users user, BindingResult bindingResult, Model model) throws SQLException {
         if (user.getPassword() != null && !user.getPassword().equals(user.getPassword2())) {
             model.addAttribute("passwordError", "Пароли не совпадают");
         }

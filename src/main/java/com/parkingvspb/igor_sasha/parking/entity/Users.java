@@ -1,5 +1,7 @@
 package com.parkingvspb.igor_sasha.parking.entity;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -27,10 +29,6 @@ public class Users {
     @Column(name = "enabled")
     private int enabled;
 
-//    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-//    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-//    @Enumerated(EnumType.STRING)
-//    private Set<Role> roles;
 
     public Users() {
         this.enabled = 1;
@@ -49,7 +47,7 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = "{bcrypt}" + password;
+        this.password = password;
     }
 
     public String getPassword2() {
