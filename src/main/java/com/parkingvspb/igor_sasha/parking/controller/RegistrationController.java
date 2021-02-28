@@ -1,6 +1,8 @@
 package com.parkingvspb.igor_sasha.parking.controller;
 
 import com.parkingvspb.igor_sasha.parking.entity.Users;
+import com.parkingvspb.igor_sasha.parking.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,9 @@ import java.util.Map;
 
 @Controller
 public class RegistrationController {
+
+    @Autowired
+    private UsersService usersService;
 
     @GetMapping("/registration")
     public String registration() {
@@ -26,17 +31,13 @@ public class RegistrationController {
 
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
-
             model.mergeAttributes(errors);
-
             return "registration";
         }
-
-        if (true) {
+        if (!usersService.saveUser(user)) {
             model.addAttribute("usernameError", "Пользователь не создан");
             return "registration";
         }
-
         return "redirect:/login";
     }
 }

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -12,7 +13,7 @@ public class Users {
     @Id
     @Column(name = "username")
     @NotEmpty
-    @Size(min = 4, message = "Имя должно быть минимум 4 символа, а также уникальным")
+    @Size(min = 6, message = "Имя должно быть минимум 6 символа, а также уникальным")
     private String name;
 
     @Column(name = "password")
@@ -21,12 +22,15 @@ public class Users {
     private String password;
 
     @Transient
-    @NotEmpty
-    @Size(min = 6, message = "Пароль должен быть не меньше 6 символов")
     private String password2;
 
     @Column(name = "enabled")
     private int enabled;
+
+//    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+//    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+//    @Enumerated(EnumType.STRING)
+//    private Set<Role> roles;
 
     public Users() {
         this.enabled = 1;
@@ -45,7 +49,7 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = "{bcrypt}" + password;
     }
 
     public String getPassword2() {

@@ -7,18 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @Validated
-public class MyControllerPages {
+public class MyMainController {
 
     @RequestMapping("/")
     public String ask() {
         return "index";
     }
 
-//    @RequestMapping("/registration")
-//    public ModelAndView askEmpDetails(Model model) {
-//        model.addAttribute("user", new Users());
-//        return new ModelAndView("registration");
-//    }
 
     @RequestMapping("/login")
     public String showLogin(@RequestParam(value = "error", required = false) String error,
