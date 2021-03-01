@@ -1,12 +1,8 @@
 package com.parkingvspb.igor_sasha.parking.entity;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,7 +24,6 @@ public class Users {
 
     @Column(name = "enabled")
     private int enabled;
-
 
     public Users() {
         this.enabled = 1;

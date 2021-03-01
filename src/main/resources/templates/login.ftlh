@@ -1,23 +1,23 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-    <h3 class="panel-title">Login with Username and Password</h3>
+    <h3 class="panel-title">Войдите используя имя и пароль</h3>
     <#if logout>
-        <div class="alert alert-info" role="alert">You've been logged out successfully.</div>
+        <div class="alert alert-info" role="alert">Вы вышли из аккаунта</div>
     </#if>
     <#if error>
-        <div class="alert alert-danger" role="alert">Invalid Username or Password!</div>
+        <div class="alert alert-danger" role="alert">Неверный пароль или логин</div>
     </#if>
 
     <form method="post">
         <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
-        <label for="username">Username</label>
+        <label for="username">Логин</label>
         <input type="text" class="form-control" id="username" placeholder="Username" name="username">
         <br>
-        <label for="password">Password</label>
+        <label for="password">Пароль</label>
         <input type="password" class="form-control" id="password" placeholder="Password" name="password">
         <br>
-        <button type="submit" class="btn btn-default">Log in</button>
+        <button type="submit" class="btn btn-default">Войти</button>
     </form>
     <br>
     <a href="/registration">

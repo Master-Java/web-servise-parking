@@ -1,5 +1,6 @@
 package com.parkingvspb.igor_sasha.parking;
 
+import com.parkingvspb.igor_sasha.parking.controller.MyMainController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

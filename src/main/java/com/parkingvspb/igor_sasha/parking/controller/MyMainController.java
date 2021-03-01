@@ -9,17 +9,48 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class MyMainController {
 
-    @RequestMapping("/")
-    public String ask() {
+    @GetMapping("/")
+    public String firstPage() {
+        return "firstPage";
+    }
+
+    @GetMapping("/index")
+    public String mainPage() {
         return "index";
     }
 
-    @RequestMapping("/login")
-    public String showLogin(@RequestParam(value = "error", required = false) String error,
+    @GetMapping("/login")
+    public String loginPage(@RequestParam(value = "error", required = false) String error,
                             @RequestParam(value = "logout", required = false) String logout,
                             Model model) {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
         return "login";
     }
+
+    @GetMapping("/address")
+    public String addressPage() {
+        return "address";
+    }
+
+    @GetMapping("/gallery")
+    public String galleryPage() {
+        return "gallery";
+    }
+
+    @GetMapping("/my_cars")
+    public String carsPage() {
+        return "myCars";
+    }
+
+    @GetMapping("/my_profile")
+    public String profilePage() {
+        return "myProfile";
+    }
+
+    @GetMapping("/price")
+    public String pricePage() {
+        return "price";
+    }
+
 }
