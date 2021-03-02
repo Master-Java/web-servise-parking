@@ -25,7 +25,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index","/gallery","/price","address").permitAll()
-                .antMatchers("/my_profile","/my_cars").authenticated()
+                .antMatchers("/my_profile","/my_cars","/my_profile/*","/my_cars/*").authenticated()
                 .and().formLogin().loginPage("/login") .defaultSuccessUrl("/index", true).permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();

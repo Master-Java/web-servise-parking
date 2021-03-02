@@ -11,7 +11,7 @@ public class Users {
     @Id
     @Column(name = "username")
     @NotEmpty
-    @Size(min = 6, message = "Имя должно быть минимум 6 символа, а также уникальным")
+    @Size(min = 4, message = "Имя должно быть минимум 4 символа, а также уникальным")
     private String name;
 
     @Column(name = "password")
@@ -24,6 +24,10 @@ public class Users {
 
     @Column(name = "enabled")
     private int enabled;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "detail_id")
+    private UserDetails userDetails;
 
     public Users() {
         this.enabled = 1;
@@ -59,5 +63,13 @@ public class Users {
 
     public void setEnabled(int enabled) {
         this.enabled = enabled;
+    }
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 }

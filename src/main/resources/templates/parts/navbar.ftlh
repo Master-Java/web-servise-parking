@@ -27,11 +27,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/address">Наши адреса</a>
             </li>
-            <#if !springMacroRequestContext.requestUri?contains("/index")>
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="history.back();return false;">Назад</a>
-            </li>
-            </#if>
+<#--            <#if !springMacroRequestContext.requestUri?contains("/index")>-->
+<#--            <li class="nav-item">-->
+<#--                <a class="nav-link" href="#" onclick="history.back();return false;">Назад</a>-->
+<#--            </li>-->
+<#--            </#if>-->
         </ul>
         <#if !springMacroRequestContext.requestUri?contains("/registration")&&!springMacroRequestContext.requestUri?contains("/login")>
             <#if Session.SPRING_SECURITY_CONTEXT??>

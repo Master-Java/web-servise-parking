@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Начало работы</title>
-    <link type="text/css" rel="stylesheet" href="/static/css/styleForFirstPage1.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/styleForFirstPage.css">
+    <script src="/static/js/main.js"></script>
     <script>
-        setTimeout(function(){
+        setTimeout(function () {
             window.location.href = '/index';
-        }, 10 * 1000);
+        }, Math.random() * 5 * 1000);
     </script>
-<#--<div>let's go!!!</div>-->
-    <div class="wrap">
-        <button class="button">Submit</button>
-    </div>
+</head>
+<body>
+<div class="wrap">
+    <button class="button">Заходим</button>
+</div>
+</body>
 </html>
