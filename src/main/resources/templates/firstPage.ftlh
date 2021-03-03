@@ -8,12 +8,12 @@
     <script>
         setTimeout(function () {
             window.location.href = '/index';
-        }, Math.random() * 5 * 1000);
+        }, /*Math.random() * */ 10 * 1000);
     </script>
 </head>
 <body>
 <div class="wrap">
-    <button class="button">Заходим</button>
+<#--    <button class="button">Заходим</button>-->
 </div>
 </body>
 </html>
