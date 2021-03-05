@@ -17,10 +17,10 @@
         <label for="password">Пароль</label>
         <input type="password" class="form-control" id="password" placeholder="Password" name="password">
         <br>
-        <button type="submit" class="btn btn-default">Войти</button>
+        <button class="custom-btn btn-4" type="submit"><span>Войти</span></button>
     </form>
     <br>
     <a href="/registration">
-        <button type="submit" class="btn btn-default">Регистрация</button>
+        <button class="custom-btn btn-4" type="submit"><span>Регистрация</span></button>
     </a>
 </@c.page>

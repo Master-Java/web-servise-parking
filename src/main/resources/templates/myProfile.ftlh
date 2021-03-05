@@ -45,6 +45,6 @@
         </tr>
     </table>
     <a href="/my_profile/edit">
-        <button type="submit" class="btn btn-default">Редактировать</button>
+        <button class="custom-btn btn-4" type="submit"><span>Редактировать</span></button>
     </a>
 </@c.page>

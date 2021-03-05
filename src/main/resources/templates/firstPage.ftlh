@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="wrap">
-<#--    <button class="button">Заходим</button>-->
+    <button class="button">Заходим</button>
 </div>
 </body>
 </html>

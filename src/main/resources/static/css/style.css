@@ -16,12 +16,14 @@
 
 .footer-nav {
     float:left;
-    height: 100%;
-    width: 40%;
+    width: 34%;
+    margin-top: 26px;
+    margin-left: 6%;
 }
 
 .footer-link {
     padding: 8px;
+    font-size: 20px;
 
     color: #6c757d;
 }
@@ -37,10 +39,192 @@
 }
 
 .logo {
-    text-align: center}
+    text-align: center;
+}
 
 .contact {
     float:right;
+    width: 34%;
+    margin-top: 17px;
+    margin-right: 6%;
+}
 
-    width: 40%;
+.contact ul {
+    list-style: none;
+}
+
+.contact ul li {
+    width: 45px;
+    height: 45px;
+    line-height: 35px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #D8E2DC;
+    float: right;
+    transition: all 0.5s ease;
+}
+
+.contact ul li .fa {
+    color: #D8E2DC;
+    font-size: 20px;
+    margin-top: 5px;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover.facebook {
+    border: 5px solid #3b5998;
+    box-shadow: 0 0 15px #3b5998;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover .fa-facebook {
+    color: #3b5998;
+    text-shadow: 0 0 15px #3b5998;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover.twitter {
+    border: 5px solid #00aced;
+    box-shadow: 0 0 15px #00aced;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover .fa-twitter {
+    color: #00aced;
+    text-shadow: 0 0 15px #00aced;
+    transition: all 0.5s ease;
+}
+
+
+.contact ul li:hover.instagram {
+    border: 5px solid #bc2a8d;
+    box-shadow: 0 0 15px #bc2a8d;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover .fa-instagram {
+    color: #bc2a8d;
+    text-shadow: 0 0 15px #bc2a8d;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover.google {
+    border: 5px solid #dd4b39;
+    box-shadow: 0 0 15px #dd4b39;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover .fa-google {
+    color: #dd4b39;
+    text-shadow: 0 0 15px #dd4b39;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover.whatsapp {
+    border: 5px solid #4dc247;
+    box-shadow: 0 0 15px #4dc247;
+    transition: all 0.5s ease;
+}
+
+.contact ul li:hover .fa-whatsapp {
+    color: #4dc247;
+    text-shadow: 0 0 15px #4dc247;
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 640px){
+    .contact {
+        width: 350px;
+    }
+    .contact ul li{
+        margin-top: 10px;
+    }
+    .contact ul li.google{
+        margin-left: 60px;
+    }
+}
+
+@media screen and (max-width: 340px){
+    .contact {
+        width: 150px;
+    }
+    .contact ul li{
+        margin:15px;
+    }
+    .contact ul li.google{
+        margin-left: 15px;
+    }
+}
+
+.custom-btn {
+    padding: 10px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+.btn-4 {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+.btn-4 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.btn-4:before,
+.btn-4:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: #000;
+    transition: all 0.3s ease;
+}
+.btn-4:before {
+    height: 50%;
+    width: 2px;
+}
+.btn-4:after {
+    width: 20%;
+    height: 2px;
+}
+.btn-4:hover:before {
+    height: 100%;
+}
+.btn-4:hover:after {
+    width: 100%;
+}
+.btn-4 span:before,
+.btn-4 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: #000;
+    transition: all 0.3s ease;
+}
+.btn-4 span:before {
+    width: 2px;
+    height: 50%;
+}
+.btn-4 span:after {
+    width: 20%;
+    height: 2px;
+}
+.btn-4 span:hover:before {
+    height: 100%;
+}
+.btn-4 span:hover:after {
+    width: 100%;
 }
