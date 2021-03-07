@@ -3,48 +3,49 @@
 
 <@c.page>
     <h2>Мой профиль</h2>
-    <table modelattribute="thisUser">
+    <table modelattribute="thisUser" class="myTable">
         <tr>
-            <th>Пользователь: ${name}</th>
+            <th>Пользователь:</th>
+            <td>${name}</td>
         </tr>
         <tr>
-            <td>Имя:</td>
+            <th>Имя:</th>
             <td>${thisUser.userDetails.name}</td>
         </tr>
         <tr>
-            <td>Фамилия:</td>
+            <th>Фамилия:</th>
             <td>${thisUser.userDetails.surname}</td>
         </tr>
         <tr>
-            <td>Отчество:</td>
+            <th>Отчество:</th>
             <td>${thisUser.userDetails.patronymic}</td>
         </tr>
         <tr>
-            <td>Возраст:</td>
+            <th>Возраст:</th>
             <td>${thisUser.userDetails.age}</td>
         </tr>
         <tr>
-            <td>Телефон:</td>
+            <th>Телефон:</th>
             <td>${thisUser.userDetails.phone}</td>
         </tr>
         <tr>
-            <td>Email:</td>
+            <th>Email:</th>
             <td>${thisUser.userDetails.email}</td>
         </tr>
         <tr>
-            <td>Город:</td>
+            <th>Город:</th>
             <td>${thisUser.userDetails.city}</td>
         </tr>
         <tr>
-            <td>Страна:</td>
+            <th>Country:</th>
             <td>${thisUser.userDetails.country}</td>
         </tr>
         <tr>
-            <td>Дата регистрации:</td>
+            <th>Дата регистрации:</th>
             <td>${thisUser.userDetails.registrationDate}</td>
         </tr>
     </table>
-    <a href="/my_profile/edit">
+    <a href="/profile/edit">
         <button class="custom-btn btn-4" type="submit"><span>Редактировать</span></button>
     </a>
 </@c.page>

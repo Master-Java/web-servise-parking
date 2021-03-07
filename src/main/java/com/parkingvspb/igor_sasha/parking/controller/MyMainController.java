@@ -1,5 +1,6 @@
 package com.parkingvspb.igor_sasha.parking.controller;
 
+import com.parkingvspb.igor_sasha.parking.entity.Car;
 import com.parkingvspb.igor_sasha.parking.entity.UserDetails;
 import com.parkingvspb.igor_sasha.parking.entity.Users;
 import com.parkingvspb.igor_sasha.parking.service.DetailsService;
@@ -12,9 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 @Controller
 @Validated
 public class MyMainController {
+
+    static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-dd-MM");
 
     @Autowired
     private UsersServiceImpl usersService;
@@ -48,28 +57,39 @@ public class MyMainController {
         return "gallery";
     }
 
-    @GetMapping("/my_cars")
-    public String carsPage() {
+    @GetMapping("/cars")
+    public String carsPage(Model model) {
+        model.addAttribute("now",dateFormat.format(new Date()));
+        Calendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.YEAR, 3);
+        Date date = calendar.getTime();
+        model.addAttribute("max",dateFormat.format(date));
         return "myCars";
     }
 
-    @GetMapping("/my_profile/edit")
+    @PostMapping("/cars")
+    public String addCarsPage(@ModelAttribute("car") Car car) {
+        System.out.println(car);
+        return "myCars";
+    }
+
+    @GetMapping("/profile/edit")
     public String updateProfilePage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("thisUserDetails", usersService.getUser(auth.getName()).getUserDetails());
         return "edit";
     }
 
-    @PostMapping("/my_profile/edit")
+    @PostMapping("/profile/edit")
     public String updateUser(@ModelAttribute("thisUserDetails") UserDetails userDetails) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Users user = usersService.getUser(auth.getName());
         user.getUserDetails().copyAttribute(userDetails);
         usersService.updateUserProfile(user);
-        return "redirect:/my_profile";
+        return "redirect:/profile";
     }
 
-    @GetMapping("/my_profile")
+    @GetMapping("/profile")
     public String profilePage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("thisUser", usersService.getUser(auth.getName()));

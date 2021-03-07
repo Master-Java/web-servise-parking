@@ -24,6 +24,7 @@
             </div>
         </main>
         <footer class="footer-parking">
+
             <div class="footer-nav">
                 <a class="footer-link" href="/index">Главная</a>
                 <a class="footer-link" href="/gallery">Галерея</a>

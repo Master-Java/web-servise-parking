@@ -3,6 +3,8 @@ package com.parkingvspb.igor_sasha.parking.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +30,17 @@ public class Users {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "detail_id")
     private UserDetails userDetails;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Car> allMyCars;
+
+    private void addCar(Car car){
+        if(allMyCars == null){
+            allMyCars = new ArrayList<>();
+        }
+        allMyCars.add(car);
+        car.setUser(this);
+    }
 
     public Users() {
         this.enabled = 1;
@@ -71,5 +84,13 @@ public class Users {
 
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
+    }
+
+    public List<Car> getAllMyCars() {
+        return allMyCars;
+    }
+
+    public void setAllMyCars(List<Car> allMyCars) {
+        this.allMyCars = allMyCars;
     }
 }

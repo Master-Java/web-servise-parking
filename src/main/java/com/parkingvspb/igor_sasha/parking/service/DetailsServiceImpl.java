@@ -12,7 +12,6 @@ public class DetailsServiceImpl implements DetailsService{
     private DetailsRepository detailsRepository;
 
     public void updateDetail (UserDetails userDetails){
-        System.out.println(userDetails.toString());
         detailsRepository.save(userDetails);
     }
 }

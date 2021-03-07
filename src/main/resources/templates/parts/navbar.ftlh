@@ -15,10 +15,10 @@
             </li>
             <#if Session.SPRING_SECURITY_CONTEXT??>
                 <li class="nav-item">
-                    <a class="nav-link" href="/my_profile">Мой профиль</a>
+                    <a class="nav-link" href="/profile">Мой профиль</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/my_cars">Мои машины</a>
+                    <a class="nav-link" href="/cars">Мои машины</a>
                 </li>
             </#if>
             <li class="nav-item">
@@ -27,6 +27,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/address">Наши адреса</a>
             </li>
+            <#if isAdmin>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Статистика</a>
+                </li>
+            </#if>
 <#--            <#if !springMacroRequestContext.requestUri?contains("/index")>-->
 <#--            <li class="nav-item">-->
 <#--                <a class="nav-link" href="#" onclick="history.back();return false;">Назад</a>-->
@@ -41,7 +46,7 @@
                 <@l.logout />
             <#else>
                 <a href="/login">
-                    <button class="btn btn-primary" type="submit">Войти</button>
+                    <button class="custom-btn btn-4" type="submit" type="submit"><span>Войти</span></button>
                 </a>
             </#if>
         </#if>
