@@ -31,19 +31,17 @@ public class Users {
     @JoinColumn(name = "detail_id")
     private UserDetails userDetails;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Car> allMyCars;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "myUser")
+    private List<Car> myCars;
 
-    private void addCar(Car car){
-        if(allMyCars == null){
-            allMyCars = new ArrayList<>();
-        }
-        allMyCars.add(car);
+    public void addCar(Car car){
+        myCars.add(car);
         car.setUser(this);
     }
 
     public Users() {
         this.enabled = 1;
+        this.myCars = new ArrayList<>();
     }
 
     public String getName() {
@@ -86,11 +84,11 @@ public class Users {
         this.userDetails = userDetails;
     }
 
-    public List<Car> getAllMyCars() {
-        return allMyCars;
+    public List<Car> getMyCars() {
+        return myCars;
     }
 
-    public void setAllMyCars(List<Car> allMyCars) {
-        this.allMyCars = allMyCars;
+    public void setMyCars(List<Car> allMyCars) {
+        this.myCars = allMyCars;
     }
 }

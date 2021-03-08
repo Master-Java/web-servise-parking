@@ -6,26 +6,25 @@
         <label for="username">Имя</label>
         <input type="text" class="form-control" maxlength="15" id="name" name="name" value="${thisUserDetails.name}">
 
-        <label for="username">Фамилия</label>
+        <label for="surname">Фамилия</label>
         <input type="text" class="form-control" maxlength="20" id="surname" name="surname" value="${thisUserDetails.surname}">
 
-        <label for="username">Отчество</label>
+        <label for="patronymic">Отчество</label>
         <input type="text" class="form-control" maxlength="20" id="patronymic" name="patronymic" value="${thisUserDetails.patronymic}">
 
-        <label for="username">Возраст</label>
+        <label for="age">Возраст</label>
         <input type="number" class="form-control" id="age" name="age" value="${thisUserDetails.age}" min="0" max="155" required>
 
-        <label for="username">Телефон</label>
+        <label for="phone">Телефон</label>
         <input type="text" class="form-control" maxlength="12" id="phone" name="phone" value="${thisUserDetails.phone}">
 
-        <label for="username">Email</label>
+        <label for="email">Email</label>
         <input type="email" class="form-control" maxlength="30" id="email" name="email" value="${thisUserDetails.email}">
 
-        <label for="username">Город</label>
+        <label for="city">Город</label>
         <input type="text" class="form-control" maxlength="40" id="city" name="city" value="${thisUserDetails.city}">
 
-        <label for="username">Страна</label>
-
+        <label for="country">Страна</label>
         <input class="form-control" list="allCountry" maxlength="40" id="country" name="country" value="${thisUserDetails.country}">
         <datalist id="allCountry">
             <option value="Россия">

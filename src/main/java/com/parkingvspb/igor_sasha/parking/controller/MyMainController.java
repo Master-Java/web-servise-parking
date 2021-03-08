@@ -62,6 +62,7 @@ public class MyMainController {
         model.addAttribute("now",dateFormat.format(new Date()));
         Calendar calendar = new GregorianCalendar();
         calendar.add(Calendar.YEAR, 3);
+        model.addAttribute("todayYear", calendar.get(Calendar.YEAR));
         Date date = calendar.getTime();
         model.addAttribute("max",dateFormat.format(date));
         return "myCars";

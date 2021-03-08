@@ -11,15 +11,11 @@ public class Car {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "number")
+    @Column(name = "numberCar")
     private String number;
 
     @Column(name = "isRent")
     private boolean isRent;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner")
-    private Users user;
 
     @Column(name = "dateForRented")
     private String dateForRented;
@@ -38,6 +34,10 @@ public class Car {
 
     @Column(name = "environmental")
     private String environmental;
+
+    @ManyToOne(targetEntity = Users.class, cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "myCars")
+    private Users myUser;
 
     public Car() {
         isRent = false;
@@ -68,11 +68,11 @@ public class Car {
     }
 
     public Users getUser() {
-        return user;
+        return myUser;
     }
 
     public void setUser(Users user) {
-        this.user = user;
+        this.myUser = user;
     }
 
     public String getDateForRented() {
@@ -129,7 +129,7 @@ public class Car {
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", isRent=" + isRent +
-                ", user=" + user +
+                ", user=" + myUser +
                 ", dateForRented='" + dateForRented + '\'' +
                 ", brand='" + brand + '\'' +
                 ", power=" + power +
