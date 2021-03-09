@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,5 +46,13 @@ public class UsersServiceImpl implements UsersService {
 
     public void updateUserProfile(Users user){
         usersRepository.save(user);
+    }
+
+    public long countAllUsersWithoutADMIN(){
+        return usersRepository.findAll().size()-1;
+    }
+
+    public List<Users> allUsers(){
+        return usersRepository.findAll();
     }
 }

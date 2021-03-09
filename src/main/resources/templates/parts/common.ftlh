@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title>Паркинг</title>
         <link rel="stylesheet" href="/static/css/style.css">
-
+        <link rel="shortcut icon" href="/static/garage.png" type="image/png">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"

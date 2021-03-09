@@ -11,13 +11,13 @@ public class Car {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "numberCar")
+    @Column(name = "number_car")
     private String number;
 
-    @Column(name = "isRent")
+    @Column(name = "is_rent")
     private boolean isRent;
 
-    @Column(name = "dateForRented")
+    @Column(name = "date_for_rented")
     private String dateForRented;
 
     @Column(name = "brand")
@@ -29,14 +29,17 @@ public class Car {
     @Column(name = "category")
     private String category;
 
-    @Column(name = "yearOfIssue")
+    @Column(name = "year_of_issue")
     private String yearOfIssue;
 
     @Column(name = "environmental")
     private String environmental;
 
+    @OneToOne(mappedBy = "car",cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    private Parking parking;
+
     @ManyToOne(targetEntity = Users.class, cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "myCars")
+    @JoinColumn(name = "owner_сar")
     private Users myUser;
 
     public Car() {
@@ -121,6 +124,22 @@ public class Car {
 
     public void setEnvironmental(String environmental) {
         this.environmental = environmental;
+    }
+
+    public Parking getParking() {
+        return parking;
+    }
+
+    public void setParking(Parking parking) {
+        this.parking = parking;
+    }
+
+    public Users getMyUser() {
+        return myUser;
+    }
+
+    public void setMyUser(Users myUser) {
+        this.myUser = myUser;
     }
 
     @Override

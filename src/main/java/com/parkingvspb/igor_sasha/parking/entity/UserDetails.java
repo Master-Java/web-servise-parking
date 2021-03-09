@@ -41,6 +41,9 @@ public class UserDetails {
     @Column(name = "data_reg")
     private String registrationDate;
 
+    @Column(name = "money")
+    private int money;
+
     @OneToOne(mappedBy = "userDetails", cascade = CascadeType.ALL)
     private Users user;
 
@@ -53,6 +56,7 @@ public class UserDetails {
         this.email = "";
         this.city = "";
         this.country = "";
+        this.money = 0;
         DateFormat df = new SimpleDateFormat("dd-MMMM-yyy");
         this.registrationDate = df.format(new Date());
     }
@@ -145,6 +149,18 @@ public class UserDetails {
         this.user = user;
     }
 
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public void addMoney(int i) {
+        money += i;
+    }
+
     public void copyAttribute(UserDetails userDetails) {
         if (!userDetails.getName().equals("")&&!userDetails.getName().equals(this.name)){
             this.name = userDetails.getName();
@@ -169,6 +185,8 @@ public class UserDetails {
         }
         this.age=userDetails.getAge();
     }
+
+
 
     @Override
     public String toString() {
