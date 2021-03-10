@@ -9,7 +9,7 @@ known = Session.SPRING_SECURITY_CONTEXT??
     isAdmin = false
     >
     <#if name == "admin">
-        <#assign name = "👑 admin"
+        <#assign name = "👑 admin 👑"
         isAdmin = true>
     </#if>
 <#else>

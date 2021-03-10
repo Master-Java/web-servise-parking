@@ -1,3 +1,7 @@
+.body{
+    /*background-color: #8b8b8d;*/
+}
+
 .navbar {
     background-color: #fff200;
 }
@@ -16,7 +20,9 @@
 
     /*background-color: #1033bf;*/
     /*background-color: rgb(195, 19, 19, 0.5);*/
-    background-color: rgb(16, 51, 191, 0.5);
+    /*background-color: rgb(204, 211, 241);*/
+    background-color: #212121;
+
 }
 
 .footer-nav {

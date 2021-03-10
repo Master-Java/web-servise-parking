@@ -44,6 +44,7 @@ public class Car {
 
     public Car() {
         isRent = false;
+        dateForRented = "";
     }
 
     public int getId() {

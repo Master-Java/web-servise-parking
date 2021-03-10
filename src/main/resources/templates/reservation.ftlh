@@ -2,6 +2,28 @@
 
 <@c.page>
     <h1>Бронь мест для паркинга ${name}</h1>
+    <br>
+    <h5>Стоимось мест для паркинга ${name}:</h5>
+    <#if name=="Green">
+        <h6>Место типа А: 200$</h6>
+        <h6>Место типа B: 300$</h6>
+        <h6>Место типа C: 450$</h6>
+    </#if>
+    <#if name=="Yellow">
+        <h6>Место типа А: 300$</h6>
+        <h6>Место типа B: 380$</h6>
+        <h6>Место типа C: 530$</h6>
+    </#if>
+    <#if name=="Red">
+        <h6>Место типа А: 400$</h6>
+        <h6>Место типа B: 600$</h6>
+        <h6>Место типа C: 1000$</h6>
+    </#if>
+    <br>
+    <a>За подробной информацией кликните на конпку</a>
+    <a href="/price/${name}">
+        <button class="custom-btn btn-4" type="submit"><span>Подробнее</span></button>
+    </a>
     <br><br>
     <#if cars??>
         <form method="post" action="/index/reservation">
@@ -17,9 +39,10 @@
             <label for="сarId">Выберите свою машину</label>
             <select class="form-control" id="сarId" name="сarId" required>
                 <#list cars as car>
-                    <#if car.isRent()>
+                    <#if car.isRent()==false>
                         <option value="${car.getId()}">${car.getBrand()} --- ${car.getNumber()}
-                            --- ${car.getPower()} л/с</option>
+                            --- ${car.getPower()} л/с
+                        </option>
                     </#if>
                 </#list>
             </select>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Начало работы</title>
     <link type="text/css" rel="stylesheet" href="/static/css/styleForFirstPage.css">
+    <link rel="shortcut icon" href="/static/garage.png" type="image/png">
     <script src="/static/js/main.js"></script>
     <script>
         setTimeout(function () {

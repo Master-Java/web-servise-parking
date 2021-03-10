@@ -15,7 +15,7 @@
               integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
               crossorigin="anonymous">
     </head>
-    <body>
+    <body class="body">
     <div class="page-for-parking">
         <main class="main-parking">
             <#include "navbar.ftlh">
@@ -36,9 +36,9 @@
             </div>
             <div class="contact">
                 <ul>
-                    <li class="whatsapp"><a href="#"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a></li>
-                    <li class="google"><a href="#"><i class="fa fa-google fa-2x" aria-hidden="true"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=79315419890"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="google"><a href="mailto:av.ruzhinskaya@gmail.com"><i class="fa fa-google fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="instagram"><a href="https://instagram.com/ruzhinskaya_av?r=nametag"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
                     <li class="twitter"><a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
                     <li class="facebook"><a href="#"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
                 </ul>

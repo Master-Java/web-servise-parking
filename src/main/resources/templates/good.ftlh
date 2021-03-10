@@ -4,7 +4,7 @@
     <br><br><br><br><br><br>
     <h3 align="center">Вы успешно забронировали место ${parking.getPlaceName()} в паркинге ${parking.getParkingName()}</h3>
     <h3 align="center">Для своей машины с номером - ${parking.getCar().getNumber()}</h3>
-    <h4 id="gogo" align="center"></h4>
+    <h1 id="gogo" align="center"></h1>
     <script>
         timedInfo();
         function timedInfo() {
@@ -23,43 +23,43 @@
             setTimeout(a1, 3000)
         }
         function a1() {
-            document.getElementById("gogo").innerHTML = "🏠🏎............";
+            document.getElementById("gogo").innerHTML = "🏠🏎💨............";
         }
         function a2() {
-            document.getElementById("gogo").innerHTML = "🏠.🏎...........";
+            document.getElementById("gogo").innerHTML = "🏠.🏎💨...........";
         }
         function a3() {
-            document.getElementById("gogo").innerHTML = "🏠..🏎..........";
+            document.getElementById("gogo").innerHTML = "🏠..🏎💨..........";
         }
         function a4() {
-            document.getElementById("gogo").innerHTML = "🏠...🏎.........";
+            document.getElementById("gogo").innerHTML = "🏠...🏎💨.........";
         }
         function a5() {
-            document.getElementById("gogo").innerHTML = "🏠....🏎........";
+            document.getElementById("gogo").innerHTML = "🏠....🏎💨........";
         }
         function a6() {
-            document.getElementById("gogo").innerHTML = "🏠.....🏎.......";
+            document.getElementById("gogo").innerHTML = "🏠.....🏎💨.......";
         }
         function a7() {
-            document.getElementById("gogo").innerHTML = "🏠......🏎......";
+            document.getElementById("gogo").innerHTML = "🏠......🏎💨......";
         }
         function a8() {
-            document.getElementById("gogo").innerHTML = "🏠.......🏎.....";
+            document.getElementById("gogo").innerHTML = "🏠.......🏎💨.....";
         }
         function a9() {
-            document.getElementById("gogo").innerHTML = "🏠........🏎....";
+            document.getElementById("gogo").innerHTML = "🏠........🏎💨....";
         }
         function a10() {
-            document.getElementById("gogo").innerHTML = "🏠.........🏎...";
+            document.getElementById("gogo").innerHTML = "🏠.........🏎💨...";
         }
         function a11() {
-            document.getElementById("gogo").innerHTML = "🏠..........🏎..";
+            document.getElementById("gogo").innerHTML = "🏠..........🏎💨..";
         }
         function a12() {
-            document.getElementById("gogo").innerHTML = "🏠...........🏎.";
+            document.getElementById("gogo").innerHTML = "🏠...........🏎💨.";
         }
         function a13() {
-            document.getElementById("gogo").innerHTML = "🏠............🏎";
+            document.getElementById("gogo").innerHTML = "🏠............🏎💨";
         }
         setTimeout(function () {
             window.location.href = '/cars';

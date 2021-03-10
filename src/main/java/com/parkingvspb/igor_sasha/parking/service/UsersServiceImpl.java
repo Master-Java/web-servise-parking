@@ -21,6 +21,7 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private DataSource dataSource;
 
+    @Override
     public boolean saveUser(Users user) throws SQLException {
         Optional<Users> userFromDB = usersRepository.findById(user.getName());
         if (userFromDB.isPresent()) {
@@ -31,11 +32,17 @@ public class UsersServiceImpl implements UsersService {
         Statement statement = connection.createStatement();
         user.setPassword("{bcrypt}"+new BCryptPasswordEncoder().encode(user.getPassword()));
         usersRepository.save(user);
-        statement.executeUpdate("INSERT INTO parking1_db.authorities (username, authority)" +
-                "VALUES ('"+user.getName()+ "','ROLE_USER' );");
+        if(user.getName().equals("admin")) {
+            statement.executeUpdate("INSERT INTO parking1_db.authorities (username, authority)" +
+                    "VALUES ('" + user.getName() + "','ROLE_ADMIN' );");
+        } else {
+            statement.executeUpdate("INSERT INTO parking1_db.authorities (username, authority)" +
+                    "VALUES ('" + user.getName() + "','ROLE_USER' );");
+        }
         return true;
     }
 
+    @Override
     public Users getUser (String nameOfUser){
         Optional<Users> userFromDB = usersRepository.findById(nameOfUser);
         if (userFromDB.isPresent()) {
@@ -44,14 +51,17 @@ public class UsersServiceImpl implements UsersService {
         return null;
     }
 
+    @Override
     public void updateUserProfile(Users user){
         usersRepository.save(user);
     }
 
+    @Override
     public long countAllUsersWithoutADMIN(){
         return usersRepository.findAll().size()-1;
     }
 
+    @Override
     public List<Users> allUsers(){
         return usersRepository.findAll();
     }

@@ -14,6 +14,7 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private CarRepository carRepository;
 
+    @Override
     public boolean presentCar(Car car){
         Optional<Car> carFromDB = carRepository.findByNumber(car.getNumber());
         if(carFromDB.isPresent()){
@@ -22,18 +23,22 @@ public class CarServiceImpl implements CarService {
         return false;
     }
 
+    @Override
     public long countAllCars(){
         return carRepository.findAll().size();
     }
 
+    @Override
     public List<Car> allCars(){
         return carRepository.findAll();
     }
 
+    @Override
     public Optional<Car> getCar(int id){
         return carRepository.findById(id);
     }
 
+    @Override
     public void save (Car car){
         carRepository.save(car);
     }

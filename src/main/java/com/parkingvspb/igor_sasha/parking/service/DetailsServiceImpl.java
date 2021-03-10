@@ -11,6 +11,7 @@ public class DetailsServiceImpl implements DetailsService{
     @Autowired
     private DetailsRepository detailsRepository;
 
+    @Override
     public void updateDetail (UserDetails userDetails){
         detailsRepository.save(userDetails);
     }

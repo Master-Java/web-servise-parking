@@ -4,9 +4,7 @@ import com.parkingvspb.igor_sasha.parking.entity.Car;
 import com.parkingvspb.igor_sasha.parking.entity.Parking;
 import com.parkingvspb.igor_sasha.parking.entity.UserDetails;
 import com.parkingvspb.igor_sasha.parking.entity.Users;
-import com.parkingvspb.igor_sasha.parking.service.CarServiceImpl;
-import com.parkingvspb.igor_sasha.parking.service.ParkingServiceImpl;
-import com.parkingvspb.igor_sasha.parking.service.UsersServiceImpl;
+import com.parkingvspb.igor_sasha.parking.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,13 +26,13 @@ public class MyMainController {
     static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-dd-MM");
 
     @Autowired
-    private UsersServiceImpl usersService;
+    private UsersService usersService;
 
     @Autowired
-    private CarServiceImpl carService;
+    private CarService carService;
 
     @Autowired
-    private ParkingServiceImpl parkingService;
+    private ParkingService parkingService;
 
     @GetMapping("/")
     public String firstPage() {
@@ -130,7 +128,7 @@ public class MyMainController {
     @GetMapping("/index/reservation/{place}")
     public String reservationPage(@PathVariable("place") String place, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (usersService.getUser(auth.getName()).getMyCars() != null) {
+        if (usersService.getUser(auth.getName()).getMyCars().size() > 0) {
             model.addAttribute("cars", usersService.getUser(auth.getName()).getMyCars());
         }
         if (place.equals("Green")) {
@@ -163,19 +161,14 @@ public class MyMainController {
         }
         String date = dateAdd(dateFor);
         car.setDateForRented(date);
-        car.setRent(false);
+        car.setRent(true);
         car.getParking().setFree(false);
         car.getParking().setDateForRented(date);
         car.getParking().setCar(car);
         carService.save(car);
-        car.getMyUser().getUserDetails().addMoney(car.getParking().getPrice());
+        car.getMyUser().getUserDetails().addMoney(car.getParking().getPrice()*Integer.parseInt(dateFor));
         usersService.updateUserProfile(car.getMyUser());
         model.addAttribute("parking", car.getParking());
-        return "good";
-    }
-
-    @GetMapping("/index/rereservation")
-    public String add(){
         return "good";
     }
 

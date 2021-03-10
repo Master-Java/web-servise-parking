@@ -58,11 +58,12 @@
                 <tr align="center">
                     <td>${car.getId()}</td>
                     <td>${car.getNumber()}</td>
-                    <td><#if car.isRent()>❌<#else>✔️</#if></td>
+                    <td><#if car.isRent()>✔️
+                        ${car.getParking().getParkingName()} - ${car.getParking().getPlaceName()}<#else>❌</#if></td>
                     <td>${car.getMyUser().getName()}</td>
                     <td>${car.getDateForRented()}</td>
                     <td>${car.getBrand()}</td>
-                    <td>${car.getPower()}</td>
+                    <td>${car.getPower()} л/с</td>
                     <td>${car.getCategory()}</td>
                     <td>${car.getYearOfIssue()}</td>
                     <td>${car.getEnvironmental()}</td>
@@ -81,7 +82,7 @@
                 </tr>
                 <tr>
                     <#list park as place>
-                    <#if place?index%15==0>
+                    <#if place?index%index==0>
                         </tr>
                         <tr>
                         <td>   ${place.getPlaceName()} - <#if place.isFree()>✔️<#else>❌</#if></td>
@@ -103,7 +104,7 @@
                 <th>Имя места</th>
                 <th>Имя паркинга</th>
                 <th>Свободно?</th>
-                <th>До какого свободно</th>
+                <th>До какого забронировано</th>
                 <th>Цена</th>
                 <th>Id машины</th>
             </tr>
