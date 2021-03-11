@@ -11,5 +11,4 @@
     <a href="/index/reservation/Red">"Красный" паркинг</a>
     </#if>
     <br>
-    <br>
 </@c.page>

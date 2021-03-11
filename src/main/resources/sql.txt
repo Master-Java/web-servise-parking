@@ -1,0 +1,74 @@
+USE parking1_db;
+
+CREATE TABLE details (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(15),
+  surname varchar(20),
+  patronymic varchar(20),
+  age int,
+  phone varchar(15),
+  email varchar(30),
+  city varchar(40),
+  country varchar(40),
+  data_reg varchar(20),
+  money int,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE users (
+  username varchar(15),
+  password varchar(100),
+  enabled tinyint(1),
+  detail_id int,
+  PRIMARY KEY (username),
+  FOREIGN KEY (detail_id) REFERENCES parking1_db.details(id)
+ );
+
+  CREATE TABLE cars (
+  id int NOT NULL AUTO_INCREMENT,
+  number_car varchar(15),
+  is_rent BOOLEAN,
+  owner_сar varchar(15),
+  date_for_rented varchar(11),
+  brand varchar(15),
+  power varchar(4),
+  category varchar(3),
+  year_of_issue varchar(4),
+  environmental varchar(6),
+  PRIMARY KEY (id),
+  FOREIGN KEY (owner_сar) REFERENCES parking1_db.users(username)
+);
+
+  CREATE TABLE parking(
+  id int NOT NULL AUTO_INCREMENT,
+  place_name varchar(5),
+  parking_name varchar(15),
+  free BOOLEAN,
+  date_for_rented varchar(15),
+  price int,
+  id_car int,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_car) REFERENCES parking1_db.cars(id)
+  );
+
+CREATE TABLE authorities (
+  username varchar(15),
+  authority varchar(25),
+  FOREIGN KEY (username) references parking1_db.users(username)
+);
+
+INSERT INTO parking1_db.details (id, name, surname,patronymic,age,phone,email,city,country,data_reg, money)
+VALUES
+	(1, 'Игорь', 'Алексеев','Сергеевич',20,'+79119551869','nio07212000@mail.ru','Санкт-Петербург','Россия','02-марта-2021', 0);
+
+INSERT INTO parking1_db.users (username, password, enabled,detail_id)
+VALUES
+	('admin', '{bcrypt}$2a$10$LSF4LuXlCT4YPHwNAZqEM.JZPF1AaSRIYsuBxIdfNEaAiqk/gK/g6', 1,1);
+
+INSERT INTO parking1_db.authorities (username, authority)
+VALUES
+	('admin', 'ROLE_ADMIN');
+
+INSERT INTO parking1_db.cars (id, number_car,is_rent,owner_сar,brand,power,category,year_of_issue,environmental)
+VALUES
+    (1, 'А001АА 178', 0,'admin','BMW M5', '650','B','2020','Евро-5');
